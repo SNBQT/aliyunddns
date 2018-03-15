@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import json,yaml
-import os
+import os,sys
 import re
 from datetime import datetime
 
@@ -12,7 +12,7 @@ from aliyunsdkalidns.request.v20150109 import DescribeDomainRecordInfoRequest
 from aliyunsdkalidns.request.v20150109 import UpdateDomainRecordRequest
 
 
-with open('setting.yaml','r') as f:
+with open(sys.path[0]+'/setting.yaml','r') as f:
     s = yaml.safe_load(f)
     print(yaml.dump(s,default_flow_style=False))
     
