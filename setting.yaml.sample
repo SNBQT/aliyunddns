@@ -5,11 +5,7 @@ access_key_id: "XXX"
 access_key_secret: "XXXXXX"
 
 # 阿里云 一级域名
-rc_domain: 'XXX.XXX'
+rc_domain: 'github.com'
 
 # 解析记录
-rc_rr_list:
-    -'XXX'
-    -'*.XXX' 
-
-
+rc_rr_list: ['www','*.git']
