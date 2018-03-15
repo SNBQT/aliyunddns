@@ -81,7 +81,7 @@ def get_my_publick_ip():
 
 def write_to_file(new_ip):
     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    write_log = open('aliyun_ddns.txt', 'a')
+    write_log = open(sys.path[0]+'/aliyun_ddns.txt', 'a')
     write_log.write(('%s %s %s.%s\n')%(time_now,str(new_ip),rc_rr,rc_domain))
     return
 

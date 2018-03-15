@@ -39,6 +39,7 @@ crontab -e
 ```
 ```
 # Run at every 10th minute
+# */10 * * * * /usr/bin/python /path_to/aliyun_ddns.py >> /path_to/run.log 2>&1
 */10 * * * * /usr/bin/python /path_to/aliyun_ddns.py /dev/null 1>/dev/null
 ```
 
