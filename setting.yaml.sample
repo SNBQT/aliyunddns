@@ -1,0 +1,15 @@
+# 阿里云 Access Key ID
+access_key_id: "XXX"
+
+# 阿里云 Access Key Secret
+access_key_secret: "XXXXXX"
+
+# 阿里云 一级域名
+rc_domain: 'XXX.XXX'
+
+# 解析记录
+rc_rr_list:
+    -'XXX'
+    -'*.XXX' 
+
+
