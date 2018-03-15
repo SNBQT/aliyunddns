@@ -1,11 +1,18 @@
 # 阿里云DNS动态解析
 支持多解析记录
+```
+git clone https://github.com/SNBQT/aliyunddns.git
+```
 ## 安装 python sdk, pyaml
 ```
 pip install aliyun-python-sdk-alidns pyaml
 ```
 
 ## 修改配置文件 setting.yaml
+```
+cp setting.yaml.sample setting.yaml
+vi setting.yaml
+```
 ```yaml
 # 阿里云 Access Key ID
 access_key_id: "XXX"
