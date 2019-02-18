@@ -73,7 +73,7 @@ def update_dns(dns_rr, dns_type, dns_value, dns_record_id, dns_ttl, dns_format):
 通过 ip.cn 获取当前主机的外网IP
 """
 def get_my_publick_ip():
-    get_ip_method = os.popen('curl -s ip.cn')
+    get_ip_method = os.popen('curl -s myip.ipip.net')
     get_ip_responses = get_ip_method.readlines()[0]
     get_ip_pattern = re.compile(r'\d+\.\d+\.\d+\.\d+')
     get_ip_value = get_ip_pattern.findall(get_ip_responses)
