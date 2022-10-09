@@ -108,14 +108,14 @@ def get_my_public_ip():
     for url in url_list:
         try:
             cmd = 'curl -s --connect-timeout 5 {}'.format(url)
-            print('{} 请求成功'.format(url))
             get_ip_method = os.popen(cmd)
             get_ip_responses = get_ip_method.readlines()[0]
             get_ip_pattern = re.compile(r'\d+\.\d+\.\d+\.\d+')
+            print('{} 请求成功'.format(url))
             get_ip_value = get_ip_pattern.findall(get_ip_responses)
+            return get_ip_value
         except:
             print('{} 请求失败'.format(url))
-    return get_ip_value
 
 
 def write_to_file(new_ip):
@@ -129,12 +129,14 @@ def write_to_file(new_ip):
 if __name__ == '__main__':
 
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print("运行时间: {}".format(now))  # 打印当前时间
+    print("运行时间: \n{}".format(now))  # 打印当前时间
 
+    print("获取公网IP: ")
     dns_records = check_records(rc_domain)
     # 获取主机当前的IP
     now_ip = get_my_public_ip()[0]
 
+    print("更新阿里云DNS: ")
     for rc_rr in rc_rr_list:
         # 之前的解析记录
         old_ip = ""
@@ -164,6 +166,6 @@ if __name__ == '__main__':
             rc_record_id = record_id    # 记录ID
             rc_ttl = '1000'             # 解析记录有效生存时间TTL,单位:秒
 
-            # print(update_dns(rc_rr, rc_type, rc_value,
-            #       rc_record_id, rc_ttl, rc_format))
+            update_dns(rc_rr, rc_type, rc_value,
+                       rc_record_id, rc_ttl, rc_format)
             # write_to_file(now_ip)
